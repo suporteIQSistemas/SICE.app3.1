@@ -1,0 +1,58 @@
+﻿.card-link-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 1rem 1rem 0 0;
+    color: #ffffff;
+    padding: .3rem;
+    text-align: center;
+}
+.card-grafico-1 {
+    cursor: default !important;
+    color: #6C757D !important;
+    height: 13rem !important;
+}
+
+.card-grafico-2, .card-grafico-3 {
+    cursor: default !important;
+    color: #6C757D !important;
+    height: 20rem !important;
+}
+
+.marcador-1, .marcador-2, .marcador-3, .marcador-4, .marcador-5, .marcador-6 {
+    border-left: solid 1rem;
+    padding-left: 1rem;
+}
+
+.marcador-1 {
+    border-color: #6C757D;
+}
+
+.marcador-2 {
+    border-color: #DC3545;
+}
+
+.marcador-3 {
+    border-color: #FFC107;
+}
+
+.marcador-4 {
+    border-color: #17A2B8;
+}
+
+.marcador-5 {
+    border-color: #28A745;
+}
+
+.marcador-6 {
+    border-color: #FF6600;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .card-grafico-3 {
+        height: 30rem !important;
+    }
+    .card-grafico-2{
+        height: 25rem !important;
+    }
+}

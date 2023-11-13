@@ -1,0 +1,34 @@
+﻿.EAN13, .EAN39 {
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+    text-align: center;
+    font-size: 100px
+}
+
+.EAN13 {
+    font-family: 'Libre Barcode EAN13', cursive;
+}
+
+.EAN39 {
+    font-family: 'Libre Barcode EAN39', cursive;
+}
+
+.EAN128 {
+    font-family: 'Libre Barcode EAN128', cursive;
+}
+
+@font-face {
+    font-family: "Libre Barcode EAN13";
+    src: url("/fonts/BarcodeEAN13.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Libre Barcode EAN39";
+    src: url("/fonts/BarcodeEAN39.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Libre Barcode EAN128";
+    src: url("/fonts/BarcodeEAN128.ttf") format("woff");
+}
