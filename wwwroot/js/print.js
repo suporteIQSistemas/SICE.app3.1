@@ -1,15 +1,19 @@
 ﻿async function PrintPdf(printPage) {
     var dadosPrintPage = JSON.parse(printPage);
-
+    
     var htmlContentAtivo = dadosPrintPage.htmlContent != null && dadosPrintPage.htmlContent != "";
-    var base64StringContentAtivo = dadosPrintPage.base64StringContent != null || dadosPrintPage.base64StringContent != "";
+    var base64StringContentAtivo = dadosPrintPage.base64StringContent != null && dadosPrintPage.base64StringContent != "";
 
     if (!htmlContentAtivo && !base64StringContentAtivo) {
         dadosPrintPage.htmlContent = GetHtmlElement(dadosPrintPage.idElement);
-        dadosPrintPage.htmlContent = window.btoa(unescape(encodeURIComponent(dadosPrintPage.htmlContent))); //Encode
+        htmlContentAtivo = dadosPrintPage.htmlContent != null && dadosPrintPage.htmlContent != "";
     }
 
+    var processandoAPI = false;
     if (htmlContentAtivo && !base64StringContentAtivo) {
+        processandoAPI = true;
+        dadosPrintPage.htmlContent = EncodeString64(dadosPrintPage.htmlContent);
+
         var settings = {
             "url": "api/PrintPDF/GerarPDF",
             "method": "POST",
@@ -21,6 +25,7 @@
         };
         $.ajax(settings).done(function (data) {
             var response = JSON.parse(data);
+            console.log(response);
             if (response.error == "false") {
                 if (isDevice()) {
                     saveFile(dadosPrintPage.fileName + ".pdf", response.result.mensagem, "application/pdf");
@@ -31,14 +36,15 @@
         });
     }
 
-    var pdfSize = calcularTamanhoPDF(dadosPrintPage.base64StringContent);
+    if (!processandoAPI) {
+        var pdfSize = calcularTamanhoPDF(dadosPrintPage.base64StringContent);
 
-    if (isDevice() || pdfSize > 500000) {
-        saveFile(dadosPrintPage.fileName + ".pdf", dadosPrintPage.base64StringContent, "application/pdf");
-    } else {
-        PrintPdfFunc(dadosPrintPage.base64StringContent, dadosPrintPage.titleDocument);
-    }
-    
+        if (isDevice() || pdfSize > 500000) {
+            saveFile(dadosPrintPage.fileName + ".pdf", dadosPrintPage.base64StringContent, "application/pdf");
+        } else {
+            PrintPdfFunc(dadosPrintPage.base64StringContent, dadosPrintPage.titleDocument);
+        }
+    }    
 }
 
 function PrintPdfFunc(base64String, title) {
@@ -59,9 +65,18 @@ function PrintPdfFunc(base64String, title) {
 }
 
 function calcularTamanhoPDF(base64String) {
-    const base64SemCabecalho = base64String.replace(/^data:[^;]+;base64,/, '');
-    const stringDecodificada = atob(base64SemCabecalho);
-    return stringDecodificada.length;
+    if (base64String == null || base64String == "") {
+        return 0;
+    }
+    else {
+        const base64SemCabecalho = base64String.replace(/^data:[^;]+;base64,/, '');
+        const stringDecodificada = atob(base64SemCabecalho);
+        return stringDecodificada.length;
+    }
+}
+
+function EncodeString64(contentString) {
+    return window.btoa(unescape(encodeURIComponent(contentString)));
 }
 
 function printFunc(element, orientacao, modePrint, docTitle) {
