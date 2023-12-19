@@ -193,6 +193,15 @@ textarea {
     cursor: pointer;
 }
 
+.labelInput-secondary {
+    color: #F7F7F7;
+}
+
+.input-secondary, .select-secondary {
+    border-color: #F7F7F7 !important;
+    cursor: pointer;
+}
+
 .input-group{ /* INPUT FILE COM BOTÕES */
     margin-top: 1rem;
 }
@@ -331,7 +340,7 @@ textarea {
     color: #DC3545;
 }
 .card-link p{
-    font-size: 3rem;
+    font-size: 2em;
     font-weight: bold;
 }
 
