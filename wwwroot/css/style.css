@@ -731,3 +731,31 @@ tl-item.active .tl-dot:before {
     border-color: #f54394 !important;
 }
 /* Vertical Timeline */
+
+.ios-toggle {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #dcdcdc;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.ios-toggle .toggle-handle {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ios-toggle.on {
+    background-color: #4cd964;
+}
+
+.ios-toggle.on .toggle-handle {
+    transform: translateX(30px);
+}
