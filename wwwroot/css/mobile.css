@@ -25,7 +25,6 @@
         max-width: 350px;
     }
     /* FORMATAÇÃO PADRÃO FIM */
-
     /* PAGINA DE PIN */
     .group-pin {
         width: 95vw;
@@ -64,6 +63,10 @@
     .max-h-500 {max-height: 350px;}
     .mobile-h-350 {
         max-height: 350px;
+    }
+    .dropdown-menu { font-size: 1em; }
+    .dropdown-item {
+        padding: 0em 0em 0em 1em !important;
     }
 }
 
