@@ -11,6 +11,17 @@ function getSelectionStart(idElement) {
     return document.getElementById(idElement).selectionStart;
 }
 
+//function KeypressRadionButton() {
+//    var radioButtons = document.querySelectorAll('input[type="radio"]');
+//    radioButtons.forEach(function (radioButton) {
+//        radioButton.addEventListener('keypress', function (event) {
+//            if (event.key === 'Enter') {
+//                console.log("Radio button selected: ", radioButton.value);
+//            }
+//        });
+//    });
+//}
+
 function getSelectionEnd(idElement) {
     return document.getElementById(idElement).selectionEnd;
 }

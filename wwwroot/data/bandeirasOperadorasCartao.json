@@ -1,0 +1,144 @@
+{
+    "bandeirasOperadorasCartao": [
+        {
+            "tBand": "01",
+            "descricao": "Visa",
+            "cnpj": "31551765000143"
+        },
+        {
+            "tBand": "02",
+            "descricao": "Mastercard",
+            "cnpj": "01248201000175"
+        },
+        {
+            "tBand": "03",
+            "descricao": "AmericanExpress",
+            "cnpj": "07965479000140"
+        },
+        {
+            "tBand": "04",
+            "descricao": "Sorocred",
+            "cnpj": "04814563000174"
+        },
+        {
+            "tBand": "05",
+            "descricao": "DinersClub",
+            "cnpj": "54419627000100"
+        },
+        {
+            "tBand": "06",
+            "descricao": "Elo",
+            "cnpj": "09227084000175"
+        },
+        {
+            "tBand": "07",
+            "descricao": "Hipercard",
+            "cnpj": "03012230000169"
+        },
+        {
+            "tBand": "08",
+            "descricao": "Aura",
+            "cnpj": "07857093000114"
+        },
+        {
+            "tBand": "09",
+            "descricao": "Cabal",
+            "cnpj": "26848128000101"
+        },
+        {
+            "tBand": "10",
+            "descricao": "Alelo",
+            "cnpj": "04740876000125"
+        },
+        {
+            "tBand": "11",
+            "descricao": "BanesCard",
+            "cnpj": "27054261000140"
+        },
+        {
+            "tBand": "12",
+            "descricao": "CalCard",
+            "cnpj": "08611734000119"
+        },
+        {
+            "tBand": "13",
+            "descricao": "Credz",
+            "cnpj": "12109247000120"
+        },
+        {
+            "tBand": "14",
+            "descricao": "Discover",
+            "cnpj": "07408191000174"
+        },
+        {
+            "tBand": "15",
+            "descricao": "GoodCard",
+            "cnpj": ""
+        },
+        {
+            "tBand": "16",
+            "descricao": "GreenCard",
+            "cnpj": "10956143000125"
+        },
+        {
+            "tBand": "17",
+            "descricao": "Hiper",
+            "cnpj": "12605982000124"
+        },
+        {
+            "tBand": "18",
+            "descricao": "JcB",
+            "cnpj": ""
+        },
+        {
+            "tBand": "19",
+            "descricao": "Mais",
+            "cnpj": ""
+        },
+        {
+            "tBand": "20",
+            "descricao": "MaxVan",
+            "cnpj": ""
+        },
+        {
+            "tBand": "21",
+            "descricao": "Policard",
+            "cnpj": ""
+        },
+        {
+            "tBand": "22",
+            "descricao": "RedeCompras",
+            "cnpj": "08262961000186"
+        },
+        {
+            "tBand": "23",
+            "descricao": "Sodexo",
+            "cnpj": "49930514000135"
+        },
+        {
+            "tBand": "24",
+            "descricao": "ValeCard",
+            "cnpj": "00604122000197"
+        },
+        {
+            "tBand": "25",
+            "descricao": "Verocheque",
+            "cnpj": "06344497000141"
+        },
+        {
+            "tBand": "26",
+            "descricao": "VR",
+            "cnpj": "78626983000163"
+        },
+        {
+            "tBand": "27",
+            "descricao": "Ticket",
+            "cnpj": ""
+        },
+        {
+            "tBand": "99",
+            "descricao": "Outros",
+            "cnpj": ""
+        }
+    ]
+}

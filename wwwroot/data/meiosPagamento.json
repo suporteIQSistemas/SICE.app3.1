@@ -1,0 +1,72 @@
+{
+    "meiosPagamentos": [
+        {
+            "tPag": "01",
+            "descricao": "Dinheiro"
+        },
+        {
+            "tPag": "02",
+            "descricao": "Cheque"
+        },
+        {
+            "tPag": "03",
+            "descricao": "CartãodeCrédito"
+        },
+        {
+            "tPag": "04",
+            "descricao": "CartãodeDébito"
+        },
+        {
+            "tPag": "05",
+            "descricao": "CréditodeLoja"
+        },
+        {
+            "tPag": "10",
+            "descricao": "ValeAlimentação"
+        },
+        {
+            "tPag": "11",
+            "descricao": "ValeRefeição"
+        },
+        {
+            "tPag": "12",
+            "descricao": "ValePresente"
+        },
+        {
+            "tPag": "13",
+            "descricao": "ValeCombustível"
+        },
+        {
+            "tPag": "14",
+            "descricao": "DuplicataMercanti"
+        },
+        {
+            "tPag": "15",
+            "descricao": "BoletoBancário"
+        },
+        {
+            "tPag": "16",
+            "descricao": "DepósitoBancário"
+        },
+        {
+            "tPag": "17",
+            "descricao": "PagamentoInstantâneo(PIX)"
+        },
+        {
+            "tPag": "18",
+            "descricao": "Transferênciabancária,CarteiraDigital"
+        },
+        {
+            "tPag": "19",
+            "descricao": "Programadefidelidade,Cashback,CréditoVirtual"
+        },
+        {
+            "tPag": "90",
+            "descricao": "SemPagamento"
+        },
+        {
+            "tPag": "99",
+            "descricao": "Outros"
+        }
+    ]
+}
