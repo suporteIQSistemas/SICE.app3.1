@@ -145,7 +145,15 @@ app {
     top: 0.5rem;
 }
 
-.blazored-modal-content form div{
+.modal-container-md {
+    width: 70% !important;
+}
+
+.modal-container-sm {
+    width: 50% !important;
+}
+
+.blazored-modal-content form div {
     padding-bottom: .1rem;
 }
 
@@ -211,5 +219,16 @@ thead th {
     .sidebar .collapse {
         /* Never collapse the sidebar for wide screens */
         display: block;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .modal-container-sm {
+        width: 30% !important;
+    }
+}
+@media screen and (min-width: 1250px) {
+    .modal-container-md {
+        width: 30% !important;
     }
 }

@@ -25,7 +25,7 @@ function success(pos) {
     };
     
     if (window.File && window.FileReader && window.FileList && window.Blob) {
-        var origin = window.location.origin == "https://siceapp.com.br" ? window.location.origin + "/" + window.location.pathname.split('/')[1] : window.location.origin;
+        var origin = obterOrigin();
         var filePath = origin + '/data/geolocationIBGE.json';
 
         $.get(filePath, function (dados) {

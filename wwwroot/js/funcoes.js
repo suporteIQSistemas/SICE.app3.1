@@ -203,6 +203,13 @@ function NewGuid() {
     });
 }
 
+function obterOrigin() {
+    var appCloud = window.location.origin == "https://siceapp.com.br";
+    var appName = window.location.pathname.split('/')[1];
+
+    return origin = appCloud || appName?.toLowerCase() == 'siceapp' ? window.location.origin + "/" + window.location.pathname.split('/')[1] : window.location.origin;
+}
+
 
 //$("iframe").ready(function () {
 //    console.log("ready");

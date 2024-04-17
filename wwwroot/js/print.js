@@ -286,7 +286,7 @@ function css(orientacao) {
 
         '.font-weight-bold {font-weight: 700!important;} ' +
 
-        '.font-italic {font-style: italic !important;;} ' +
+        '.font-italic {font-style: italic !important;} ' +
 
         '.text-center {text-align: center!important;} ' +
 
