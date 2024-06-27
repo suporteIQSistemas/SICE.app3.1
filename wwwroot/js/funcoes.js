@@ -147,17 +147,6 @@ function SetFocusOn(element) {
     $('#' + element).focus().select();
 }
 
-function saveFile(fileName, base64String, type) {
-    const linkSource = `data:${type};base64,${base64String}`;
-    const downloadLink = document.createElement('a');
-    document.body.appendChild(downloadLink);
-
-    downloadLink.href = linkSource;
-    downloadLink.target = '_self';
-    downloadLink.download = fileName;
-    downloadLink.click();
-}
-
 function getFilePathFromInput(inputFile) {
     const pathParts = inputFile.value.split('\\');
     pathParts.pop();

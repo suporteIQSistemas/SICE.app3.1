@@ -1,4 +1,5 @@
 ﻿async function PrintPdf(printPage) {
+    var maxFileSize = 2 * 1024;
     var dadosPrintPage = JSON.parse(printPage);
     
     var htmlContentAtivo = dadosPrintPage.htmlContent != null && dadosPrintPage.htmlContent != "";
@@ -14,44 +15,24 @@
         $("#carregandoJS").removeClass("d-none")
         printAPI = true;
 
-        dadosPrintPage.htmlContent = EncodeString64(dadosPrintPage.htmlContent);
+        dadosPrintPage.base64StringContent = await htmlToPdfConverter(dadosPrintPage);
 
-        var settings = {
-            "url": "api/PrintPDF/GerarPDF",
-            "method": "POST",
-            "timeout": 0,
-            "headers": {
-                "Content-Type": "application/json"
-            },
-            "data": JSON.stringify(dadosPrintPage),
-        };
-        
-        $.ajax(settings)
-            .done(function (data) {
-                var response = JSON.parse(data);
-                if (response.error == "false") {
-                    dadosPrintPage.base64StringContent = response.result.mensagem;
+        var pdfSize = calcularTamanhoPDF(dadosPrintPage.base64StringContent);
+        if (isDevice() || pdfSize > maxFileSize) {
+            dadosPrintPage.fileName += ".pdf";
+            saveFile(dadosPrintPage, "application/pdf");
+        } else {
+            PrintPdfFunc(dadosPrintPage.base64StringContent, dadosPrintPage.titleDocument);
+        }
 
-                    var pdfSize = calcularTamanhoPDF(dadosPrintPage.base64StringContent);
-                    if (isDevice() || pdfSize > 500000) {
-                        saveFile(dadosPrintPage.fileName + ".pdf", dadosPrintPage.base64StringContent, "application/pdf");
-                    } else {
-                        PrintPdfFunc(dadosPrintPage.base64StringContent, dadosPrintPage.titleDocument);
-                    }
-                }
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                console.error('Error:', textStatus, errorThrown);
-            }).
-            always(function () {
-                $("#carregandoJS").addClass("d-none");
-            });
+        $("#carregandoJS").addClass("d-none");
     }
 
     if (!printAPI) {
         var pdfSize = calcularTamanhoPDF(dadosPrintPage.base64StringContent);
-        if (isDevice() || pdfSize > 500000) {
-            saveFile(dadosPrintPage.fileName + ".pdf", dadosPrintPage.base64StringContent, "application/pdf");
+        if (isDevice() || pdfSize > maxFileSize) {
+            dadosPrintPage.fileName += ".pdf";
+            saveFile(dadosPrintPage, "application/pdf");
         } else {
             PrintPdfFunc(dadosPrintPage.base64StringContent, dadosPrintPage.titleDocument);
         }
@@ -83,7 +64,7 @@ function calcularTamanhoPDF(base64String) {
     else {
         const base64SemCabecalho = base64String.replace(/^data:[^;]+;base64,/, '');
         const stringDecodificada = atob(base64SemCabecalho);
-        return stringDecodificada.length;
+        return stringDecodificada.length > 0 ? stringDecodificada.length / 1024 : 0;
     }
 }
 
