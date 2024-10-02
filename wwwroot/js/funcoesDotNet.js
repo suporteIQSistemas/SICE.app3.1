@@ -12,7 +12,7 @@ async function obterMaxFileSize() {
 async function saveFile(printPage, type) {
     try {
         await DotNet.invokeMethodAsync(_assemblyName, "PrintPageDB", "gravar", printPage);
-        window.open(`api/Download/DownloadFile/saveFile${printPage?.ipTerminal}`);
+        window.open(`api/Download/DownloadFile/?ipTerminal=${printPage?.ipTerminal}`);
 
     } catch (error) {
         console.error('Erro ao chamar a função. ', error);
@@ -31,7 +31,7 @@ async function statusApiWhatsAppConexao() {
 }
 async function htmlToPdfConverter(printPage, style = true, baseUri = "") {
     try {
-        const result = await DotNet.invokeMethodAsync(_assemblyName, "HtmlToPdfConverter", printPage, style, baseUri);
+        const result = await DotNet.invokeMethodAsync(_assemblyName, "HtmlToPdfConverter", printPage, style, baseUri, false);
         return result;
     } catch (error) {
         console.error('Erro ao chamar a função. ', error);

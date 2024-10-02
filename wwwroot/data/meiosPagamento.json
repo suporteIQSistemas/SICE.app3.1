@@ -2,71 +2,88 @@
     "meiosPagamentos": [
         {
             "tPag": "01",
-            "descricao": "Dinheiro"
+            "descricao": "Dinheiro",
+            "tipo": "DH"
         },
         {
             "tPag": "02",
-            "descricao": "Cheque"
+            "descricao": "Cheque",
+            "tipo": "CH"
         },
         {
             "tPag": "03",
-            "descricao": "CartãodeCrédito"
+            "descricao": "CartãodeCrédito",
+            "tipo": "CA"
         },
         {
             "tPag": "04",
-            "descricao": "CartãodeDébito"
+            "descricao": "CartãodeDébito",
+            "tipo": "CA"
         },
         {
             "tPag": "05",
-            "descricao": "CréditodeLoja"
+            "descricao": "CréditodeLoja",
+            "tipo": "CR"
         },
         {
             "tPag": "10",
-            "descricao": "ValeAlimentação"
+            "descricao": "ValeAlimentação",
+            "tipo": "TI"
         },
         {
             "tPag": "11",
-            "descricao": "ValeRefeição"
+            "descricao": "ValeRefeição",
+            "tipo": "TI"
         },
         {
             "tPag": "12",
-            "descricao": "ValePresente"
+            "descricao": "ValePresente",
+            "tipo": "TI"
         },
         {
             "tPag": "13",
-            "descricao": "ValeCombustível"
+            "descricao": "ValeCombustível",
+            "tipo": "TI"
         },
         {
             "tPag": "14",
-            "descricao": "DuplicataMercanti"
+            "descricao": "DuplicataMercanti",
+            "tipo": "BL"
         },
         {
             "tPag": "15",
-            "descricao": "BoletoBancário"
+            "descricao": "BoletoBancário",
+            "tipo": "BL"
         },
         {
             "tPag": "16",
-            "descricao": "DepósitoBancário"
+            "descricao": "DepósitoBancário",
+            "tipo": "DC"
         },
         {
             "tPag": "17",
-            "descricao": "PagamentoInstantâneo(PIX)"
+            "descricao": "PagamentoInstantâneo(PIX)",
+            "tipo": "PX"
         },
         {
             "tPag": "18",
-            "descricao": "Transferênciabancária,CarteiraDigital"
+            "descricao": "Transferênciabancária,CarteiraDigital",
+            "tipo": "DB"
         },
         {
             "tPag": "19",
-            "descricao": "Programadefidelidade,Cashback,CréditoVirtual"
+            "descricao": "Programadefidelidade,Cashback,CréditoVirtual",
+            "tipo": "PF"
         },
         {
             "tPag": "90",
-            "descricao": "SemPagamento"
+            "descricao": "SemPagamento",
+            "tipo": "SP"
         },
         {
             "tPag": "99",
-            "descricao": "Outros"
+            "descricao": "Outros",
+            "tipo": "OU"
         }
     ]
 }

@@ -69,7 +69,7 @@ function ObterListAttrElements(listaString) {
         var element = $(selector);
         var id = element.attr("id");
         var height = element.height();
-        var clientHeight = element[0].clientHeight;
+        var clientHeight = element[0]?.clientHeight;
 
         retorno.push({
             id: id ?? "",
@@ -139,7 +139,7 @@ function OnClickNavToggler(tabPaneActived) {
         tabAlvo.css("height", padraoH - $(".navbar-collapse ul").height());
     }
     else {
-        tabAlvo.css("height", padraoH);
+        tabAlvo?.css("height", padraoH);
     }
 }
 
