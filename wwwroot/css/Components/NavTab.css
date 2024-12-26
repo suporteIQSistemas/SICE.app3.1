@@ -1,0 +1,27 @@
+﻿#NavTabHeader .row {
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: grab;
+}
+
+#NavTabHeader .row:active {
+    cursor: grabbing;
+}
+
+#NavTabHeader .row::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem no WebKit (Chrome, Safari) */
+}
+
+#NavTabHeader .row {
+    -ms-overflow-style: none; /* Oculta a barra de rolagem no IE e Edge */
+    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+}
+
+#NavTabHeader .row {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch; /* Suporte para rolagem suave no iOS */
+}
+
+#NavTabHeader .row {
+    scroll-behavior: smooth; /* Rolagem suave */
+}

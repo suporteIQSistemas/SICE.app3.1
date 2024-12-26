@@ -1,4 +1,14 @@
+@import url('bootstrap/bootstrap.min.css' ) screen;
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('Components/NavTab.css') screen;
+@import url('Components/CardList.css') screen;
+@import url('Components/Table.css') screen;
+@import url('animated.css') screen;
+@import url('bootstrap.min.css') screen;
+@import url('mobile.css') screen;
+@import url('fonts.css') screen, print;
+@import url('chartJS.css');
+@import url('style.css') screen;
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;

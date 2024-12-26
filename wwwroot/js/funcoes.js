@@ -46,6 +46,20 @@ function MobileDevice() {
     }
 }
 
+function detectarDispositivo() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/iPhone|iPad|iPod/i.test(userAgent)) {
+        return "iOS";
+    }
+
+    if (/Android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    return "Web";
+}
+
 function ObterHeightElement(element, unidadeMedida) {
     switch (unidadeMedida) {
         case "px":
@@ -62,6 +76,18 @@ function ObterHeightElement(element, unidadeMedida) {
         default:
             return ObterHeightElement(element, "vh");
     }    
+}
+function ObterHtmlElement(element, children, index) {
+    if (element?.length > 0) {
+        if (children?.length > 0) {
+            return $(element).children(children).eq(index === undefined ? 0 : index).html()?.replace(/<!--[\s\S]*?-->/g, "");
+        } else {
+            return $(element).html()?.replace(/<!--[\s\S]*?-->/g, "");
+        }
+    }
+    else {
+        return "";
+    }
 }
 function ObterListAttrElements(listaString) {
     var retorno = [];
@@ -232,7 +258,7 @@ function enviarEmail(funcao) {
             let emailAssunto = "Solicitação de suporte";
             let emailCorpo = "Empresa: " + WebClienteNome + " \n Cidade: " + WebClienteCidade + " \n Telefone: " + WebClienteTel + " \n Solicitante: (Digite seu nome aqui) \n \n Solicitamos atendimento para: (digite sua solicitação aqui) \n \n";
             let emailLink = "mailto:"+emailDest+"?subject="+emailAssunto+"&body="+encodeURIComponent(emailCorpo);
-            window.location.href = emailLink;
+            window.location.Href = emailLink;
             break;
     }
 }

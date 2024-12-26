@@ -51,7 +51,7 @@ function PrintPdfFunc(base64String, title) {
         document.body.style.margin = "auto";
         document.body.style.overflowY = 'hidden';
         document.body.style.overflowX = 'hidden';
-        document.title = '` + (title ?? "SICE.app - Impressão PDF") + `';
+        document.Title = '` + (title ?? "SICE.app - Impressão PDF") + `';
     </script>
     `);
     doc.stop();
@@ -175,7 +175,7 @@ function printFunc(element, orientacao, modePrint, docTitle) {
 function scripts(docTitle) {
     var html = "";
     if (docTitle != "") {
-        html += "document.title = '" + docTitle + "';"
+        html += "document.Title = '" + docTitle + "';"
     }
     return html;
 }

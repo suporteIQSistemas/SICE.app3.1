@@ -64,7 +64,9 @@
     .mobile-h-350 {
         max-height: 350px;
     }
-    .dropdown-menu { font-size: 1em; }
+    .dropdown-menu { 
+        font-size: 1em;
+    }
     .dropdown-item {
         padding: 0em 0em 0em 1em !important;
     }
