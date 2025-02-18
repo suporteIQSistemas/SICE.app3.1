@@ -15,7 +15,7 @@
 
 @media only screen and (max-width: 769px) {
     /* FORMATAÇÃO PADRÃO */
-    .mobile-hide{display: none;}
+    .mobile-hide{display: none !important;}
     .mobile-d-block {display: block !important;}
     .mobile-f-block {display: flex !important;}
     .btn-topo{padding-left: 1rem;}
@@ -107,7 +107,7 @@
 
 @media only screen and (max-height: 415px) {
     /* FORMATAÇÃO PADRÃO */
-    .mobile-hide {display: none;}
+    .mobile-hide {display: none !important;}
     .mobile-d-block {display: block !important;}
     .mobile-f-block {display: flex !important;}
     .max-h-500 {max-height: 150px;}

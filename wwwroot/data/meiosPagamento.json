@@ -1,89 +1,99 @@
 {
-    "meiosPagamentos": [
-        {
-            "tPag": "01",
-            "descricao": "Dinheiro",
-            "tipo": "DH"
-        },
-        {
-            "tPag": "02",
-            "descricao": "Cheque",
-            "tipo": "CH"
-        },
-        {
-            "tPag": "03",
-            "descricao": "CartãodeCrédito",
-            "tipo": "CA"
-        },
-        {
-            "tPag": "04",
-            "descricao": "CartãodeDébito",
-            "tipo": "CA"
-        },
-        {
-            "tPag": "05",
-            "descricao": "CréditodeLoja",
-            "tipo": "CR"
-        },
-        {
-            "tPag": "10",
-            "descricao": "ValeAlimentação",
-            "tipo": "TI"
-        },
-        {
-            "tPag": "11",
-            "descricao": "ValeRefeição",
-            "tipo": "TI"
-        },
-        {
-            "tPag": "12",
-            "descricao": "ValePresente",
-            "tipo": "TI"
-        },
-        {
-            "tPag": "13",
-            "descricao": "ValeCombustível",
-            "tipo": "TI"
-        },
-        {
-            "tPag": "14",
-            "descricao": "DuplicataMercanti",
-            "tipo": "BL"
-        },
-        {
-            "tPag": "15",
-            "descricao": "BoletoBancário",
-            "tipo": "BL"
-        },
-        {
-            "tPag": "16",
-            "descricao": "DepósitoBancário",
-            "tipo": "DC"
-        },
-        {
-            "tPag": "17",
-            "descricao": "PagamentoInstantâneo(PIX)",
-            "tipo": "PX"
-        },
-        {
-            "tPag": "18",
-            "descricao": "Transferênciabancária,CarteiraDigital",
-            "tipo": "DB"
-        },
-        {
-            "tPag": "19",
-            "descricao": "Programadefidelidade,Cashback,CréditoVirtual",
-            "tipo": "PF"
-        },
-        {
-            "tPag": "90",
-            "descricao": "SemPagamento",
-            "tipo": "SP"
-        },
-        {
-            "tPag": "99",
-            "descricao": "Outros",
-            "tipo": "OU"
-        }
-    ]
+  "meiosPagamentos": [
+    {
+      "tPag": "01",
+      "descricao": "Dinheiro",
+      "tipo": "DH"
+    },
+    {
+      "tPag": "02",
+      "descricao": "Cheque",
+      "tipo": "CH"
+    },
+    {
+      "tPag": "03",
+      "descricao": "CartãodeCrédito",
+      "tipo": "CA"
+    },
+    {
+      "tPag": "04",
+      "descricao": "CartãodeDébito",
+      "tipo": "CA"
+    },
+    {
+      "tPag": "05",
+      "descricao": "CréditodeLoja",
+      "tipo": "CR"
+    },
+    {
+      "tPag": "10",
+      "descricao": "ValeAlimentação",
+      "tipo": "TI"
+    },
+    {
+      "tPag": "11",
+      "descricao": "ValeRefeição",
+      "tipo": "TI"
+    },
+    {
+      "tPag": "12",
+      "descricao": "ValePresente",
+      "tipo": "TI"
+    },
+    {
+      "tPag": "13",
+      "descricao": "ValeCombustível",
+      "tipo": "TI"
+    },
+    {
+      "tPag": "14",
+      "descricao": "DuplicataMercanti",
+      "tipo": "BL"
+    },
+    {
+      "tPag": "15",
+      "descricao": "BoletoBancário",
+      "tipo": "BL"
+    },
+    {
+      "tPag": "16",
+      "descricao": "DepósitoBancário",
+      "tipo": "DC"
+    },
+    {
+      "tPag": "17",
+      "descricao": "PagamentoInstantâneo(PIX)",
+      "tipo": "PX"
+    },
+    {
+      "tPag": "18",
+      "descricao": "Transferênciabancária,CarteiraDigital",
+      "tipo": "DB"
+    },
+    {
+      "tPag": "19",
+      "descricao": "Programadefidelidade,Cashback,CréditoVirtual",
+      "tipo": "PF"
+    },
+    {
+      "tPag": "20",
+      "descricao": "Pagamento Instantâneo (PIX) – Estático",
+      "tipo": "PX"
+    },
+    {
+      "tPag": "21",
+      "descricao": "Crédito em Loja",
+      "tipo": "CR"
+    },
+    {
+      "tPag": "90",
+      "descricao": "SemPagamento",
+      "tipo": "SP"
+    },
+    {
+      "tPag": "99",
+      "descricao": "Outros",
+      "tipo": "OU"
+    }
+  ]
 }

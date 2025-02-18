@@ -18,6 +18,7 @@
     {"mime": "application/mac-compactpro", "extention": "cpt"},
     {"mime": "application/x-csh", "extention": "csh"},
     {"mime": "text/css", "extention": "css"},
+    {"mime": "text/csv", "extention": "csv"},
     {"mime": "application/x-director", "extention": "dcr"},
     {"mime": "video/x-dv", "extention": "dif"},
     {"mime": "application/x-director", "extention": "dir"},

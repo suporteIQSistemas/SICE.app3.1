@@ -10,6 +10,7 @@ body{font-family: 'Roboto', sans-serif; height: 100%; width: 100%;}
 .fa-1-6x{font-size: 1.6em !important;}
 .w-10{width: 10vh !important;}
 .whitespace-nowrap {white-space: nowrap !important;}
+.break-word { word-break: break-word; }
 .cursor-pointer{cursor: pointer;}
 .text-none {opacity: 0;}
 .hover-danger:hover{color: #DC3545;}

@@ -170,7 +170,7 @@ function OnClickNavToggler(tabPaneActived) {
 }
 
 function SetFocusOn(element) {
-    $('#' + element).focus().select();
+    document.getElementById(element).focus();
 }
 
 function getFilePathFromInput(inputFile) {
@@ -223,6 +223,27 @@ function obterOrigin() {
     var appName = window.location.pathname.split('/')[1];
 
     return origin = appCloud || appName?.toLowerCase() == 'siceapp' ? window.location.origin + "/" + window.location.pathname.split('/')[1] : window.location.origin;
+}
+
+function saveFile(printPage, type) {
+    try {
+        type = type == null || type == '' ? 'application/pdf' : type;
+
+        const binaryString = atob(printPage.base64StringContent);
+        const len = binaryString.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+
+        const blob = new Blob([bytes], { type: type });
+        var nomeArquivo = printPage.fileName == null || printPage.fileName == "" ? "SICE.app - Impressão PDF" : printPage.fileName;
+        saveAs(blob, nomeArquivo);
+
+    } catch (error) {
+        console.error('Erro ao chamar a função. ', error);
+        throw error;
+    }
 }
 
 

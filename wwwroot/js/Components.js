@@ -90,6 +90,15 @@ function initializeCardListDropdown(dotNetHelper) {
     });
 }
 
+
+/******************************/
+/*     INDEX MAIN PAGES      */
+/****************************/
+function isButtonFloatOn() {
+    return document.querySelector('.btn-float') != null;
+}
+
+
 /******************************/
 /* NAVTAB - SCROLL TAB ITEMS */
 /****************************/
@@ -136,6 +145,10 @@ function iniciarNavTab() {
     const setBodyHeight = (e) => {
         var windowsHeight = $(window).height() / 100;
         var headerHeight = $("#NavTabHeader").height() / windowsHeight;
+
+        if (detectarDispositivo() == "iOS")
+            headerHeight = headerHeight + 20;
+
         $("#NavTabBody").css("max-height", `${e - headerHeight}vh`);
     };
 
@@ -166,5 +179,8 @@ function iniciarNavTab() {
 /***************************/
 function verificaSeModal() {
     return $('div').hasClass('blazored-modal-container');
+}
+function totalizadoresOn() {
+    return document.querySelector('div[id^="totalizador"]') !== null;
 }
 

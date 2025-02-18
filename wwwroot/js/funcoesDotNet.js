@@ -9,17 +9,6 @@ async function obterMaxFileSize() {
     }
 }
 
-async function saveFile(printPage, type) {
-    try {
-        await DotNet.invokeMethodAsync(_assemblyName, "PrintPageDB", "gravar", printPage);
-        window.open(`api/Download/DownloadFile/?ipTerminal=${printPage?.ipTerminal}`);
-
-    } catch (error) {
-        console.error('Erro ao chamar a função. ', error);
-        throw error;
-    }
-}
-
 async function statusApiWhatsAppConexao() {
     try {
         await DotNet.invokeMethodAsync(_assemblyName, "StatusApiWhatsAppConexao");
