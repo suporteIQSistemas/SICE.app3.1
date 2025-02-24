@@ -97,6 +97,9 @@ function initializeCardListDropdown(dotNetHelper) {
 function isButtonFloatOn() {
     return document.querySelector('.btn-float') != null;
 }
+function isTotalizadoresOn() {
+    return document.querySelector('.totalizadores') != null;
+}
 
 
 /******************************/
