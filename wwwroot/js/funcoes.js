@@ -61,13 +61,17 @@ function detectarDispositivo() {
 }
 
 function ObterHeightElement(element, unidadeMedida) {
+    var elementHeight = document.getElementById(element)?.clientHeight;
+    if (typeof elementHeight === "undefined" || elementHeight === null) {
+        elementHeight = null;
+    }
+
     switch (unidadeMedida) {
         case "px":
-            return $(element).height() ? $(element).height() : null;
+            return elementHeight;
 
         case "vh":
             var windowHeight = window.innerHeight;
-            var elementHeight = $(element).height() ? $(element).height() : null;
             if (elementHeight != null)
                 return ((elementHeight / windowHeight) * 100) + "vh";
             else
@@ -76,6 +80,7 @@ function ObterHeightElement(element, unidadeMedida) {
         default:
             return ObterHeightElement(element, "vh");
     }    
+
 }
 function ObterHtmlElement(element, children, index) {
     if (element?.length > 0) {
@@ -538,5 +543,5 @@ function ajuda() {/*
         height : 200
     });
     qrcode.makeCode(iqcardSuporte+"chat");*/
+    /* BOTÃO AJUDA FIM */
 }
-/* BOTÃO AJUDA FIM */
