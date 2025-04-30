@@ -14,6 +14,10 @@
 }
 
 @media only screen and (max-width: 769px) {
+    .dropdown-menu {
+        left: 5em !important;
+    }
+
     /* FORMATAÇÃO PADRÃO */
     .mobile-hide{display: none !important;}
     .mobile-d-block {display: block !important;}

@@ -75,8 +75,6 @@ window.camera = {
     }
 };
 
-
-
 /**************************/
 /* CARD LIST - DROPDOWN  */
 /************************/
@@ -90,23 +88,17 @@ function initializeCardListDropdown(dotNetHelper) {
     });
 }
 
-
-/******************************/
-/*     INDEX MAIN PAGES      */
-/****************************/
-function isButtonFloatOn() {
-    return document.querySelector('.btn-float') != null;
-}
-function isTotalizadoresOn() {
-    return document.querySelector('.totalizadores') != null;
-}
-
-
 /******************************/
 /* NAVTAB - SCROLL TAB ITEMS */
 /****************************/
-function iniciarNavTab() {
-    const NavTabHeaderElement = document.querySelector('#NavTabHeader .row');
+function iniciarNavTab(idElement) {
+    let bodyHeight = MobileDevice() ? 65 : 95;
+    let container = document.querySelector(`#${idElement}`);
+
+    const NavTabHeaderElement = container.querySelector('#NavTabHeader');
+    const NavTabHeaderFirstRowElement = container.querySelector('#NavTabHeader .row');
+
+    const NavTabBodyElement = NavTabHeaderElement.nextElementSibling;
 
     let isDown = false;
     let startX;
@@ -114,8 +106,8 @@ function iniciarNavTab() {
 
     const startDragging = (e) => {
         isDown = true;
-        startX = (e.pageX || e.touches[0].pageX) - NavTabHeaderElement.offsetLeft;
-        scrollLeft = NavTabHeaderElement.scrollLeft;
+        startX = (e.pageX || e.touches[0].pageX) - NavTabHeaderFirstRowElement.offsetLeft;
+        scrollLeft = NavTabHeaderFirstRowElement.scrollLeft;
     };
 
     const stopDragging = () => {
@@ -125,65 +117,41 @@ function iniciarNavTab() {
     const drag = (e) => {
         if (!isDown) return;
         e.preventDefault();
-        const x = (e.pageX || e.touches[0].pageX) - NavTabHeaderElement.offsetLeft;
+        const x = (e.pageX || e.touches[0].pageX) - NavTabHeaderFirstRowElement.offsetLeft;
         const walk = (x - startX) * 3; // Ajuste a velocidade de rolagem
-        NavTabHeaderElement.scrollLeft = scrollLeft - walk;
+        NavTabHeaderFirstRowElement.scrollLeft = scrollLeft - walk;
     };
 
-    const observer = new MutationObserver((mutationsList) => {
-        for (let mutation of mutationsList) {
-            if (mutation.type === "childList") {
-                mutation.addedNodes.forEach((node) => {
-                    if (node.nodeType === 1 && node.classList.contains("alert")) {
-                        setBodyHeight(85);
-                    } else {
-                        setBodyHeight(95);
-                    }
-                });
-            }
-        }
-    });
-
-    // Ajuste Body Max-Height
-    const setBodyHeight = (e) => {
-        var windowsHeight = $(window).height() / 100;
-        var headerHeight = $("#NavTabHeader").height() / windowsHeight;
-
-        if (detectarDispositivo() == "iOS")
-            headerHeight = headerHeight + 20;
-
-        $("#NavTabBody").css("max-height", `${e - headerHeight}vh`);
-    };
-
-    if (NavTabHeaderElement) {
-        NavTabHeaderElement.addEventListener('mousedown', startDragging);
-        NavTabHeaderElement.addEventListener('mouseleave', stopDragging);
-        NavTabHeaderElement.addEventListener('mouseup', stopDragging);
-        NavTabHeaderElement.addEventListener('mousemove', drag);
+    if (NavTabHeaderFirstRowElement) {
+        NavTabHeaderFirstRowElement.addEventListener('mousedown', startDragging);
+        NavTabHeaderFirstRowElement.addEventListener('mouseleave', stopDragging);
+        NavTabHeaderFirstRowElement.addEventListener('mouseup', stopDragging);
+        NavTabHeaderFirstRowElement.addEventListener('mousemove', drag);
 
         // Adicionando suporte para touch (mobile)
-        NavTabHeaderElement.addEventListener('touchstart', startDragging);
-        NavTabHeaderElement.addEventListener('touchend', stopDragging);
-        NavTabHeaderElement.addEventListener('touchmove', drag);
+        NavTabHeaderFirstRowElement.addEventListener('touchstart', startDragging);
+        NavTabHeaderFirstRowElement.addEventListener('touchend', stopDragging);
+        NavTabHeaderFirstRowElement.addEventListener('touchmove', drag);
 
         // Adicionando suporte para Edge
-        NavTabHeaderElement.addEventListener('pointerdown', startDragging);
-        NavTabHeaderElement.addEventListener('pointerup', stopDragging);
-        NavTabHeaderElement.addEventListener('pointermove', drag);
-
-        setBodyHeight(95);
+        NavTabHeaderFirstRowElement.addEventListener('pointerdown', startDragging);
+        NavTabHeaderFirstRowElement.addEventListener('pointerup', stopDragging);
+        NavTabHeaderFirstRowElement.addEventListener('pointermove', drag);
     }
 
-    $('form:first :input:enabled:visible:first')?.focus()?.select();
+    if (container) {
+        let elementFocus = container.querySelector("input");
+        if (elementFocus) {
+            elementFocus.focus();
+        } else {
+            elementFocus = container.nextElementSibling.querySelector("button");
+            if (elementFocus) {
+                elementFocus.focus();
+            }
+        }
+    }
 }
 
 /*****************************/
 /* TABLE - SCROLL TAB ITEMS */
 /***************************/
-function verificaSeModal() {
-    return $('div').hasClass('blazored-modal-container');
-}
-function totalizadoresOn() {
-    return document.querySelector('div[id^="totalizador"]') !== null;
-}
-

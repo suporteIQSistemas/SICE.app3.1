@@ -9,7 +9,6 @@
         dadosPrintPage.htmlContent = GetHtmlElement(dadosPrintPage.idElement);
         htmlContentAtivo = dadosPrintPage.htmlContent != null && dadosPrintPage.htmlContent != "";
     }
-
     var printAPI = false;
     if (htmlContentAtivo && !base64StringContentAtivo) {
         $("#carregandoJS").removeClass("d-none")

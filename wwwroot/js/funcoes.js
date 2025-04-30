@@ -10,6 +10,15 @@ window.playAudio = function (idElement) {
 function getSelectionStart(idElement) {
     return document.getElementById(idElement).selectionStart;
 }
+function isButtonFloatOn() {
+    return document.querySelector('.btn-float') != null;
+}
+function isModal() {
+    return $('div').hasClass('blazored-modal-container');
+}
+function isTotalizadoresOn() {
+    return document.querySelector('div[id^="totalizador"]') !== null;
+}
 
 //function KeypressRadionButton() {
 //    var radioButtons = document.querySelectorAll('input[type="radio"]');
@@ -68,7 +77,7 @@ function ObterHeightElement(element, unidadeMedida) {
 
     switch (unidadeMedida) {
         case "px":
-            return elementHeight;
+            return elementHeight + "px";
 
         case "vh":
             var windowHeight = window.innerHeight;
@@ -79,19 +88,22 @@ function ObterHeightElement(element, unidadeMedida) {
 
         default:
             return ObterHeightElement(element, "vh");
-    }    
-
-}
-function ObterHtmlElement(element, children, index) {
-    if (element?.length > 0) {
-        if (children?.length > 0) {
-            return $(element).children(children).eq(index === undefined ? 0 : index).html()?.replace(/<!--[\s\S]*?-->/g, "");
-        } else {
-            return $(element).html()?.replace(/<!--[\s\S]*?-->/g, "");
-        }
     }
-    else {
-        return "";
+}
+function ObterHeightWindow(unidadeMedida) {
+    var elementHeight = window.innerHeight;
+
+    switch (unidadeMedida) {
+        case "px":
+            return elementHeight + "px";
+
+        default:
+        case "vh":
+            var windowHeight = window.innerHeight;
+            if (elementHeight != null)
+                return ((elementHeight / windowHeight) * 100) + "vh";
+            else
+                return null;
     }
 }
 function ObterListAttrElements(listaString) {
@@ -194,7 +206,7 @@ function updateIframeContent(content) {
 }
 
 function GetHtmlElement(idElement) {
-    return $("#" + idElement).html();
+    return $(`#${idElement}`).html();
 }
 
 function getScrollPosition() {

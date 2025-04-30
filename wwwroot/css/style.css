@@ -133,6 +133,12 @@ textarea {
 .input, .blazored-typeahead {
     border-left: none !important;
 }
+input:disabled {
+    background-color: #e9ecef !important;
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+    opacity: 0.65 !important;
+}
 .dropdown-item{
     cursor: pointer;
     text-transform: uppercase;
@@ -231,6 +237,12 @@ textarea {
 .select-obrigatorio{
     border-left: solid 5px #DC3545 !important;
 }
+select:disabled {
+    background-color: #e9ecef !important;
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+    opacity: 0.65 !important;
+}
 .dropdown-toggle{
     background-color: transparent;
     border: none;
@@ -241,32 +253,56 @@ textarea {
     display: inline-block;
 }
 
-.btn-simples-danger, .btn-simples-success, .btn-simples-info, .btn-simples-dark, .btn-simples-secondary {
+/* Estilos básicos para todos os botões */
+.btn-simples-danger,
+.btn-simples-success,
+.btn-simples-info,
+.btn-simples-dark,
+.btn-simples-secondary,
+.btn-simples-primary {
     text-align: left;
-    padding: .7rem;
-    border-radius: .3rem;
-    color: #28A745;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
     font-size: 1rem;
     cursor: pointer;
     background-color: transparent;
     border: none;
     white-space: nowrap;
 }
-.btn-simples-info{
-    color: #17A2B8;
+
+.btn-simples-success {
+    color: var(--success);
 }
-.btn-simples-success i, .btn-simples-info i{
+
+.btn-simples-info {
+    color: var(--info);
+}
+
+.btn-simples-danger {
+    color: var(--danger);
+}
+
+.btn-simples-dark {
+    color: var(--dark);
+}
+
+.btn-simples-secondary {
+    color: var(--secondary);
+}
+
+.btn-simples-primary {
+    color: var(--primary);
+}
+
+.btn-simples-danger i,
+.btn-simples-success i,
+.btn-simples-info i,
+.btn-simples-dark i,
+.btn-simples-secondary i,
+.btn-simples-primary i {
     font-size: 1.4rem;
 }
-.btn-simples-dark{
-    color: #212121;
-}
-.btn-simples-danger{
-    color: #DC3545;
-}
-.btn-simples-secondary {
-    color: #6c757d;
-}
+
 .btn-float {
     position: fixed;
     border-radius: 8vh;
@@ -335,7 +371,7 @@ textarea {
     border: none !important;
     border-radius: 1rem !important;
     color: #6c757d;
-    background-color: var(--white) !important;
+    /*background-color: var(--white) !important;*/
 }
 .card span, .card-link span {
     text-transform: uppercase;
