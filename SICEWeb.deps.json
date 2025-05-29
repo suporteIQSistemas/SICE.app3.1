@@ -29,7 +29,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "SICEWeb/1.0.0": {
+      "SICEWeb/5.4": {
         "dependencies": {
           "BlazorDownloadFile": "2.1.6",
           "BlazorInputFile": "0.2.0",
@@ -5230,7 +5230,7 @@
     }
   },
   "libraries": {
-    "SICEWeb/1.0.0": {
+    "SICEWeb/5.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
