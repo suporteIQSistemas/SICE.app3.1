@@ -186,8 +186,25 @@ function OnClickNavToggler(tabPaneActived) {
     }
 }
 
-function SetFocusOn(element) {
-    document.getElementById(element).focus();
+function SetFocusOn(elementId, select = false) {
+    const el = document.getElementById(elementId);
+    if (el) {
+        el.focus();
+
+        if (select) {
+            setTimeout(() => {
+                if (typeof el.select === 'function') {
+                    el.select();
+                } else if (el.isContentEditable) {
+                    const range = document.createRange();
+                    range.selectNodeContents(el);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+            }, 10);
+        }
+    }
 }
 
 function getFilePathFromInput(inputFile) {

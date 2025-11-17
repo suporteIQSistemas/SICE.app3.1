@@ -8,6 +8,7 @@ body{font-family: 'Roboto', sans-serif; height: 100%; width: 100%;}
 .h7-5{font-size: .7rem;}
 .h8{font-size: .48rem;}
 .fa-1-6x{font-size: 1.6em !important;}
+.text-4rem{font-size: 4rem;}
 .w-10{width: 10vh !important;}
 .whitespace-nowrap {white-space: nowrap !important;}
 .break-word { word-break: break-word; }
@@ -259,6 +260,7 @@ select:disabled {
 .btn-simples-info,
 .btn-simples-dark,
 .btn-simples-secondary,
+.btn-simples-warning,
 .btn-simples-primary {
     text-align: left;
     padding: 0.7rem;
@@ -294,11 +296,16 @@ select:disabled {
     color: var(--primary);
 }
 
+.btn-simples-warning {
+    color: var(--warning);
+}
+
 .btn-simples-danger i,
 .btn-simples-success i,
 .btn-simples-info i,
 .btn-simples-dark i,
 .btn-simples-secondary i,
+.btn-simples-warning i,
 .btn-simples-primary i {
     font-size: 1.4rem;
 }
