@@ -1,0 +1,38 @@
+﻿/* Exibe indicador de tecla rápida ao pressionar uma tecla */
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.input-wrapper input {
+    padding-right: 60px; /* espaço para o texto */
+}
+
+/* estilo base */
+.input-wrapper::after {
+    position: absolute;
+    right: 1.6em;
+    top: 80%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 0.9em;
+    pointer-events: none;
+    content: ""; /* vazio por padrão */
+}
+
+/* diferentes atalhos */
+.input-wrapper[data-key="enter"]:focus-within::after {
+    content: "↵ Enter";
+}
+
+.input-wrapper[data-key="escape"]:focus-within::after {
+    content: "Esc";
+}
+
+.input-wrapper[data-key="tab"]:focus-within::after {
+    content: "⇥ Tab";
+}
+
+.input-wrapper[data-key="shift"]:focus-within::after {
+    content: "⇧ Shift";
+}

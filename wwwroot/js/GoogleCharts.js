@@ -112,10 +112,41 @@ function columnChart(request) {
 
     if (request.rowsData.length > 1) {
         var dataTable = [];
-        dataTable.push([request.columnsData[0], 'Valor']);
-        for (var i = 1; i < request.columnsData.length; i++) {
-            var linha = [request.columnsData[i].value, request.rowsData[0][i]];
-            dataTable.push(linha);
+
+        // primeira linha: cabeçalhos
+        var headers = [];
+        headers.push(request.columnsData[0]);
+        for (var i = 0; i < request.rowsData.length; i++) {
+            headers.push(request.rowsData[i][0]);
+        }
+        dataTable.push(headers);
+
+        // demais linhas: valores
+        for (var j = 1; j < request.columnsData.length; j++) {
+            var linha = [];
+            var valido = true;
+
+            // primeiro valor da linha
+            if (request.columnsData[j] && request.columnsData[j].value !== undefined) {
+                linha.push(request.columnsData[j].value);
+            } else {
+                valido = false;
+            }
+
+            // valores das métricas
+            for (var k = 0; k < request.rowsData.length; k++) {
+                if (request.rowsData[k][j] !== undefined) {
+                    linha.push(request.rowsData[k][j]);
+                } else {
+                    valido = false;
+                    break;
+                }
+            }
+
+            // só adiciona se todos os valores existirem
+            if (valido) {
+                dataTable.push(linha);
+            }
         }
 
         var data = google.visualization.arrayToDataTable(dataTable);
