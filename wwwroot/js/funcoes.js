@@ -186,7 +186,7 @@ function OnClickNavToggler(tabPaneActived) {
     }
 }
 
-function SetFocusOn(elementId, select = false) {
+function SetFocusOn(elementId, select = true) {
     const el = document.getElementById(elementId);
     if (el) {
         el.focus();
@@ -253,10 +253,12 @@ function NewGuid() {
 }
 
 function obterOrigin() {
-    var appCloud = window.location.origin == "https://siceapp.com.br";
+    var appCloud = window.location.origin?.includes("siceapp");
     var appName = window.location.pathname.split('/')[1];
 
-    return origin = appCloud || appName?.toLowerCase() == 'siceapp' ? window.location.origin + "/" + window.location.pathname.split('/')[1] : window.location.origin;
+    return origin = appCloud || appName?.toLowerCase().startsWith('sice')
+                  ? window.location.origin + "/" + window.location.pathname.split('/')[1]
+                  : window.location.origin;
 }
 
 function saveFile(printPage, type) {

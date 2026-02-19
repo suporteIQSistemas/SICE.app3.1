@@ -1,1 +1,8 @@
-﻿
+﻿th.bg-light {
+    color: #495057;
+    background-color: #e9ecef !important;
+}
+
+th.border-light {
+    border-color: #dee2e6;
+}
