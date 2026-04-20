@@ -9,6 +9,7 @@
         dadosPrintPage.htmlContent = GetHtmlElement(dadosPrintPage.idElement);
         htmlContentAtivo = dadosPrintPage.htmlContent != null && dadosPrintPage.htmlContent != "";
     }
+
     var printAPI = false;
     if (htmlContentAtivo && !base64StringContentAtivo) {
         $("#carregandoJS").removeClass("d-none")
@@ -29,31 +30,75 @@
 
     if (!printAPI) {
         var pdfSize = calcularTamanhoPDF(dadosPrintPage.base64StringContent);
-        if (isDevice() || pdfSize > maxFileSize) {
+
+        if (isDevice() || pdfSize > maxFileSize || !supportsPDFInline()) {
             dadosPrintPage.fileName += ".pdf";
             saveFile(dadosPrintPage, "application/pdf");
         } else {
             PrintPdfFunc(dadosPrintPage.base64StringContent, dadosPrintPage.titleDocument);
         }
     }
+}
 
+function supportsPDFInline() {
+    var mimeType = navigator.mimeTypes['application/pdf'];
+    if (mimeType && mimeType.enabledPlugin) {
+        return true;
+    }
+    var embed = document.createElement('embed');
+    embed.type = 'application/pdf';
+    return embed.type === 'application/pdf';
+}
+
+function handleDownload(base64String, fileName = "arquivo.pdf") {
+    const byteCharacters = atob(base64String);
+    const byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: "application/pdf" });
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+
+    link.click();
+    URL.revokeObjectURL(link.href);
 }
 
 function PrintPdfFunc(base64String, title) {
     var doc = window.open("");
-    doc.document.write(`
-    <object data="data:application/pdf;base64,`+ base64String + `" type="application/pdf" width="` + window.innerWidth + `" height="` + window.innerHeight +`">
-        <p class="text-center"><a class="btn btn-primary text-white" @onclick="DownloadPDF">Baixar PDF</a></p>
-    </object>
 
-    <script>
-        document.body.style.margin = "auto";
-        document.body.style.overflowY = 'hidden';
-        document.body.style.overflowX = 'hidden';
-        document.Title = '` + (title ?? "SICE.app - Impressão PDF") + `';
-    </script>
-    `);
-    doc.stop();
+    if (supportsPDFInline()) {
+        // Se suportar inline, mostra o PDF com botão opcional
+        doc.document.write(`
+        <object data="data:application/pdf;base64,${base64String}" 
+                type="application/pdf" 
+                width="${window.innerWidth}" 
+                height="${window.innerHeight}">
+            <p class="text-center">
+                <button class="btn btn-primary text-white" 
+                        onclick="handleDownload('${base64String}', '${title}.pdf')">
+                    Baixar PDF
+                </button>
+            </p>
+        </object>
+
+        <script>
+            document.body.style.margin = "auto";
+            document.body.style.overflowY = 'hidden';
+            document.body.style.overflowX = 'hidden';
+            document.title = '${title ?? "SICE.app - Impressão PDF"}';
+        </script>
+        `);
+    } else {
+        // Se não suportar inline, já baixa automaticamente
+        handleDownload(base64String, title + ".pdf");
+        doc.close(); // fecha a aba em branco
+    }
 }
 
 function calcularTamanhoPDF(base64String) {
@@ -69,6 +114,19 @@ function calcularTamanhoPDF(base64String) {
 
 function EncodeString64(contentString) {
     return window.btoa(unescape(encodeURIComponent(contentString)));
+}
+
+function supportsPDFInline() {
+    // Verifica se o navegador reconhece o tipo application/pdf
+    var mimeType = navigator.mimeTypes['application/pdf'];
+    if (mimeType && mimeType.enabledPlugin) {
+        return true; // Suporte encontrado
+    }
+
+    // Teste adicional: cria um elemento <embed> e verifica se aceita PDF
+    var embed = document.createElement('embed');
+    embed.type = 'application/pdf';
+    return embed.type === 'application/pdf';
 }
 
 function printFunc(element, orientacao, modePrint, docTitle) {
@@ -178,9 +236,6 @@ function scripts(docTitle) {
     }
     return html;
 }
-
-
-
 
 function css(orientacao) {
     var css =
