@@ -29,7 +29,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "SICEWeb/5.11": {
+      "SICEWeb/5.12": {
         "dependencies": {
           "BlazorDownloadFile": "2.1.6",
           "BlazorInputFile": "0.2.0",
@@ -42,6 +42,7 @@
           "ExcelDataReader": "3.7.0",
           "ExcelDataReader.DataSet": "3.7.0",
           "Google.Apis.Drive.v3": "1.61.0.3120",
+          "Google.Cloud.Storage.V1": "4.14.0",
           "HtmlAgilityPack": "1.12.4",
           "Microsoft.AspNetCore.Blazor.HttpClient": "3.2.0-preview3.20168.3",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.6",
@@ -57,7 +58,7 @@
           "NETStandardBarcode": "1.0.2",
           "NReco.LambdaParser": "1.0.12",
           "NReco.PdfGenerator": "1.2.1",
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.4",
           "QRCoder": "1.4.3",
           "RestSharp": "112.0.0",
           "SendGrid": "9.25.2",
@@ -67,7 +68,6 @@
           "ZXing.Net": "0.16.9",
           "iTextSharp": "5.5.13.3",
           "itext7": "8.0.2",
-          "itext7.bouncy-castle-adapter": "8.0.2",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -357,7 +357,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.14",
           "Microsoft.AspNetCore.Components.Web": "3.1.14",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.JSInterop.WebAssembly": "3.2.1"
         },
         "runtime": {
@@ -425,17 +425,6 @@
           "lib/BouncyCastle.Crypto.dll": {}
         }
       },
-      "BouncyCastle.Cryptography/2.2.1": {
-        "runtime": {
-          "lib/netstandard2.0/BouncyCastle.Cryptography.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.1.47552"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/BouncyCastle.Cryptography.dll": {}
-        }
-      },
       "BouncyCastle.NetCore/1.8.3": {
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -492,7 +481,7 @@
       "EntityFramework/6.4.4": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
-          "System.CodeDom": "4.7.0",
+          "System.CodeDom": "7.0.0",
           "System.ComponentModel.Annotations": "4.7.0",
           "System.Configuration.ConfigurationManager": "4.7.0",
           "System.Data.SqlClient": "4.8.1"
@@ -576,48 +565,76 @@
           "lib/netstandard2.0/FastMember.Signed.dll": {}
         }
       },
-      "Google.Apis/1.61.0": {
+      "Google.Api.Gax/4.12.1": {
         "dependencies": {
-          "Google.Apis.Core": "1.61.0"
+          "Microsoft.Bcl.AsyncInterfaces": "8.0.0",
+          "Newtonsoft.Json": "13.0.4",
+          "System.Diagnostics.DiagnosticSource": "6.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.Gax.dll": {
+            "assemblyVersion": "4.12.1.0",
+            "fileVersion": "4.12.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.Gax.dll": {}
+        }
+      },
+      "Google.Api.Gax.Rest/4.12.1": {
+        "dependencies": {
+          "Google.Api.Gax": "4.12.1",
+          "Google.Apis.Auth": "1.72.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Api.Gax.Rest.dll": {
+            "assemblyVersion": "4.12.1.0",
+            "fileVersion": "4.12.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Api.Gax.Rest.dll": {}
+        }
+      },
+      "Google.Apis/1.72.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.72.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.72.0.0",
+            "fileVersion": "1.72.0.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/Google.Apis.dll": {}
         }
       },
-      "Google.Apis.Auth/1.61.0": {
+      "Google.Apis.Auth/1.72.0": {
         "dependencies": {
-          "Google.Apis": "1.61.0",
-          "Google.Apis.Core": "1.61.0"
+          "Google.Apis": "1.72.0",
+          "Google.Apis.Core": "1.72.0",
+          "System.Management": "7.0.2"
         },
         "runtime": {
-          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
-          },
           "lib/netstandard2.0/Google.Apis.Auth.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.72.0.0",
+            "fileVersion": "1.72.0.0"
           }
         },
         "compile": {
-          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {},
           "lib/netstandard2.0/Google.Apis.Auth.dll": {}
         }
       },
-      "Google.Apis.Core/1.61.0": {
+      "Google.Apis.Core/1.72.0": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Core.dll": {
-            "assemblyVersion": "1.61.0.0",
-            "fileVersion": "1.61.0.0"
+            "assemblyVersion": "1.72.0.0",
+            "fileVersion": "1.72.0.0"
           }
         },
         "compile": {
@@ -626,8 +643,8 @@
       },
       "Google.Apis.Drive.v3/1.61.0.3120": {
         "dependencies": {
-          "Google.Apis": "1.61.0",
-          "Google.Apis.Auth": "1.61.0"
+          "Google.Apis": "1.72.0",
+          "Google.Apis.Auth": "1.72.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Drive.v3.dll": {
@@ -637,6 +654,36 @@
         },
         "compile": {
           "lib/netstandard2.0/Google.Apis.Drive.v3.dll": {}
+        }
+      },
+      "Google.Apis.Storage.v1/1.71.0.3920": {
+        "dependencies": {
+          "Google.Apis": "1.72.0",
+          "Google.Apis.Auth": "1.72.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {
+            "assemblyVersion": "1.71.0.3920",
+            "fileVersion": "1.71.0.3920"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Apis.Storage.v1.dll": {}
+        }
+      },
+      "Google.Cloud.Storage.V1/4.14.0": {
+        "dependencies": {
+          "Google.Api.Gax.Rest": "4.12.1",
+          "Google.Apis.Storage.v1": "1.71.0.3920"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Cloud.Storage.V1.dll": {
+            "assemblyVersion": "4.14.0.0",
+            "fileVersion": "4.14.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Google.Cloud.Storage.V1.dll": {}
         }
       },
       "Google.Protobuf/3.6.1": {
@@ -737,25 +784,10 @@
           "lib/netstandard2.0/itext.svg.dll": {}
         }
       },
-      "itext.bouncy-castle-adapter/8.0.2": {
-        "dependencies": {
-          "BouncyCastle.Cryptography": "2.2.1",
-          "itext.commons": "8.0.2"
-        },
-        "runtime": {
-          "lib/netstandard2.0/itext.bouncy-castle-adapter.dll": {
-            "assemblyVersion": "8.0.2.0",
-            "fileVersion": "8.0.2.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/itext.bouncy-castle-adapter.dll": {}
-        }
-      },
       "itext.commons/8.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Logging": "5.0.0",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/itext.commons.dll": {
@@ -770,11 +802,6 @@
       "itext7/8.0.2": {
         "dependencies": {
           "itext": "8.0.2"
-        }
-      },
-      "itext7.bouncy-castle-adapter/8.0.2": {
-        "dependencies": {
-          "itext.bouncy-castle-adapter": "8.0.2"
         }
       },
       "iTextSharp/5.5.13.3": {
@@ -1035,7 +1062,7 @@
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Embedded": "3.1.6",
           "Microsoft.Extensions.Identity.Stores": "3.1.6",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll": {
@@ -1492,7 +1519,7 @@
           "Microsoft.Extensions.Logging": "5.0.0",
           "System.Collections.Immutable": "1.7.1",
           "System.ComponentModel.Annotations": "4.7.0",
-          "System.Diagnostics.DiagnosticSource": "5.0.0"
+          "System.Diagnostics.DiagnosticSource": "6.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {
@@ -1605,7 +1632,7 @@
       "Microsoft.Extensions.Caching.Memory/3.1.7": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "3.1.7",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
           "Microsoft.Extensions.Options": "5.0.0"
         },
@@ -1635,7 +1662,7 @@
       },
       "Microsoft.Extensions.DependencyInjection/5.0.2": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {
@@ -1647,15 +1674,15 @@
           "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.51904"
+          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
           }
         },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.DependencyModel/3.1.3": {
@@ -1735,10 +1762,10 @@
       "Microsoft.Extensions.Logging/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
           "Microsoft.Extensions.Options": "5.0.0",
-          "System.Diagnostics.DiagnosticSource": "5.0.0"
+          "System.Diagnostics.DiagnosticSource": "6.0.2"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {
@@ -1763,7 +1790,7 @@
       },
       "Microsoft.Extensions.Options/5.0.0": {
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Microsoft.Extensions.Primitives": "6.0.0"
         },
         "runtime": {
@@ -1907,7 +1934,7 @@
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/3.1.4": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll": {
@@ -1923,7 +1950,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "5.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "3.1.4",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
@@ -1985,7 +2012,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.3.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "3.1.4",
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.4",
           "NuGet.Frameworks": "4.7.0"
         },
         "runtime": {
@@ -2152,11 +2179,11 @@
           "lib/netstandard2.0/NETStandardBarcode.dll": {}
         }
       },
-      "Newtonsoft.Json/13.0.3": {
+      "Newtonsoft.Json/13.0.4": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "13.0.0.0",
-            "fileVersion": "13.0.3.27908"
+            "fileVersion": "13.0.4.30916"
           }
         },
         "compile": {
@@ -2312,7 +2339,7 @@
       },
       "SendGrid/9.25.2": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.4",
           "starkbank-ecdsa": "1.3.3"
         },
         "runtime": {
@@ -2516,15 +2543,15 @@
         }
       },
       "System.Buffers/4.5.1": {},
-      "System.CodeDom/4.7.0": {
+      "System.CodeDom/7.0.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
-            "assemblyVersion": "4.0.3.0",
-            "fileVersion": "4.700.19.56404"
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.22.51805"
           }
         },
         "compile": {
-          "ref/netstandard2.0/System.CodeDom.dll": {}
+          "lib/netstandard2.0/System.CodeDom.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -2808,15 +2835,19 @@
           "System.Runtime": "4.3.1"
         }
       },
-      "System.Diagnostics.DiagnosticSource/5.0.0": {
+      "System.Diagnostics.DiagnosticSource/6.0.2": {
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
         "runtime": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.51904"
+          "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.3624.51421"
           }
         },
         "compile": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+          "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
       "System.Diagnostics.Process/4.3.0": {
@@ -3063,13 +3094,27 @@
           "System.Threading": "4.3.0"
         }
       },
+      "System.Management/7.0.2": {
+        "dependencies": {
+          "System.CodeDom": "7.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Management.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "7.0.723.27404"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Management.dll": {}
+        }
+      },
       "System.Memory/4.5.5": {},
       "System.Net.Http/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.DiagnosticSource": "5.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.2",
           "System.Diagnostics.Tracing": "4.3.0",
           "System.Globalization": "4.3.0",
           "System.Globalization.Extensions": "4.3.0",
@@ -3733,7 +3778,7 @@
       "Twilio/6.2.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "6.19.0",
-          "Newtonsoft.Json": "13.0.3",
+          "Newtonsoft.Json": "13.0.4",
           "System.Collections.Specialized": "4.3.0",
           "System.IdentityModel.Tokens.Jwt": "6.19.0"
         },
@@ -5249,7 +5294,7 @@
     }
   },
   "libraries": {
-    "SICEWeb/5.11": {
+    "SICEWeb/5.12": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5302,13 +5347,6 @@
       "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
       "path": "bouncycastle/1.8.9",
       "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
-    },
-    "BouncyCastle.Cryptography/2.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ==",
-      "path": "bouncycastle.cryptography/2.2.1",
-      "hashPath": "bouncycastle.cryptography.2.2.1.nupkg.sha512"
     },
     "BouncyCastle.NetCore/1.8.3": {
       "type": "package",
@@ -5373,26 +5411,40 @@
       "path": "fastmember.signed/1.3.0",
       "hashPath": "fastmember.signed.1.3.0.nupkg.sha512"
     },
-    "Google.Apis/1.61.0": {
+    "Google.Api.Gax/4.12.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KUVqG6MRC7E8anPOLefqb+wnDeIS6IJ1B09GaXg07vAHGVnGxJ8odAtpnCQCN3aUzao3gFnSSEKawDvFrJpYZQ==",
-      "path": "google.apis/1.61.0",
-      "hashPath": "google.apis.1.61.0.nupkg.sha512"
+      "sha512": "sha512-G62dRNOv5DolfRviT6CCrL2a5nZ/CWWdRzhADkGnpCkYSOc3QnH5xxRvZiOKuHU8weJ/pAqAqrj7+T9IWdlu2Q==",
+      "path": "google.api.gax/4.12.1",
+      "hashPath": "google.api.gax.4.12.1.nupkg.sha512"
     },
-    "Google.Apis.Auth/1.61.0": {
+    "Google.Api.Gax.Rest/4.12.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1tXnTa9WaimJdlrIyHnhjjgFX6fQ1r4ClWqlK9ZYF5YPyswG1GbWhhlPyQg615BnHSulmRINlXIi8AbGJsc1yQ==",
-      "path": "google.apis.auth/1.61.0",
-      "hashPath": "google.apis.auth.1.61.0.nupkg.sha512"
+      "sha512": "sha512-djYb7sDJvUiOG66fpDIOsprrZz4RPbiAtMiKtRguQhrzlHasd+3k/u6BQFFY3S0KCdxJzvv8M8hi81Ocdi6Ijw==",
+      "path": "google.api.gax.rest/4.12.1",
+      "hashPath": "google.api.gax.rest.4.12.1.nupkg.sha512"
     },
-    "Google.Apis.Core/1.61.0": {
+    "Google.Apis/1.72.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/COXAFLc1SrLDZl7Ahhi0ZyNHM6ADvdd73UjIPXr1MRubHTrBgvdfwoTrCL0C8C6w0ur/RIR1RHUR5orSJozGg==",
-      "path": "google.apis.core/1.61.0",
-      "hashPath": "google.apis.core.1.61.0.nupkg.sha512"
+      "sha512": "sha512-QbSJ08W7QuqsfzDPOZDHl1aFzCYwMcfBoHqQRh7koglwDN5WacShCKYMpU/zR1Pf3h3sH6JTGEeM/txAxaJuEg==",
+      "path": "google.apis/1.72.0",
+      "hashPath": "google.apis.1.72.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.72.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RBoFwFKBHKUjuyJf2weEnqICQLaY0TdIrdFv2yC8bsiR2VFYxizOn3C/qN1FWCCb0Uh9GhW+zwAV1yUxPjiocw==",
+      "path": "google.apis.auth/1.72.0",
+      "hashPath": "google.apis.auth.1.72.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.72.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZmYX1PU0vTKFT42c7gp4zaYcb/0TFAXrt9qw8yEz0wjvaug85+/WddlPTfT525Qei8iIUsF6t4bHYrsb2O7crg==",
+      "path": "google.apis.core/1.72.0",
+      "hashPath": "google.apis.core.1.72.0.nupkg.sha512"
     },
     "Google.Apis.Drive.v3/1.61.0.3120": {
       "type": "package",
@@ -5400,6 +5452,20 @@
       "sha512": "sha512-RcdYnaXf7a+HoPKtqoTt4Vlvdfin6y27L8rsUcZ52+O2t0tTBk2WO0s01MnLu0gic1KSZ6fHqqZgf2nyau5C+g==",
       "path": "google.apis.drive.v3/1.61.0.3120",
       "hashPath": "google.apis.drive.v3.1.61.0.3120.nupkg.sha512"
+    },
+    "Google.Apis.Storage.v1/1.71.0.3920": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jW4i96fvFjtkPOdOo3bfC2Wity0krx3RTCExTksIx9lS/k7HmbF/zfxE1z3VouhrQvwwdEOkrR4TxdxzomJKxQ==",
+      "path": "google.apis.storage.v1/1.71.0.3920",
+      "hashPath": "google.apis.storage.v1.1.71.0.3920.nupkg.sha512"
+    },
+    "Google.Cloud.Storage.V1/4.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CLoAz9BDzqGEXWKWPuUxlk8/wcabsONxCa3MEQzxhbEGoKT1TOT6KnWNl1IhrBGqNw7IWtR/Xg06XHS8JYF1qQ==",
+      "path": "google.cloud.storage.v1/4.14.0",
+      "hashPath": "google.cloud.storage.v1.4.14.0.nupkg.sha512"
     },
     "Google.Protobuf/3.6.1": {
       "type": "package",
@@ -5422,13 +5488,6 @@
       "path": "itext/8.0.2",
       "hashPath": "itext.8.0.2.nupkg.sha512"
     },
-    "itext.bouncy-castle-adapter/8.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-djCnycEdSBcpRxPOm0vAwGiOBZRT6GX7kyg/Jezk0AsMuq2d6Qd4md8AzTcgnEaTLwc717QK6QVmzbT30wdG7w==",
-      "path": "itext.bouncy-castle-adapter/8.0.2",
-      "hashPath": "itext.bouncy-castle-adapter.8.0.2.nupkg.sha512"
-    },
     "itext.commons/8.0.2": {
       "type": "package",
       "serviceable": true,
@@ -5442,13 +5501,6 @@
       "sha512": "sha512-IuFfSlMSTLqVGCIsxpcDL9kCtEfppSBjq4V+RgfrxnqEC+iNF4tCHiIdl8quyzTDbaHF4vNufxe2NXMJMkPlSw==",
       "path": "itext7/8.0.2",
       "hashPath": "itext7.8.0.2.nupkg.sha512"
-    },
-    "itext7.bouncy-castle-adapter/8.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cNtEkxFStPblWys1uhafXkUuSGFAH9vFqZ4H09IZPMo5TzJbjbeklgmBGrFu7IPHtOym03+1RHzVEKzfcd1deQ==",
-      "path": "itext7.bouncy-castle-adapter/8.0.2",
-      "hashPath": "itext7.bouncy-castle-adapter.8.0.2.nupkg.sha512"
     },
     "iTextSharp/5.5.13.3": {
       "type": "package",
@@ -5821,12 +5873,12 @@
       "path": "microsoft.extensions.dependencyinjection/5.0.2",
       "hashPath": "microsoft.extensions.dependencyinjection.5.0.2.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {
+    "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ORj7Zh81gC69TyvmcUm9tSzytcy8AVousi+IVRAI8nLieQjOFryRusSFh7+aLk16FN9pQNqJAiMd7BTKINK0kA==",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0",
-      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
+      "sha512": "sha512-xlzi2IYREJH3/m6+lUrQlujzX8wDitm4QGnUu6kUXTQAWPuZY8i+ticFJbzfqaetLA6KR/rO6Ew/HuYD+bxifg==",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyModel/3.1.3": {
       "type": "package",
@@ -6059,12 +6111,12 @@
       "path": "netstandardbarcode/1.0.2",
       "hashPath": "netstandardbarcode.1.0.2.nupkg.sha512"
     },
-    "Newtonsoft.Json/13.0.3": {
+    "Newtonsoft.Json/13.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
-      "path": "newtonsoft.json/13.0.3",
-      "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
+      "sha512": "sha512-pdgNNMai3zv51W5aq268sujXUyx7SNdE2bj1wZcWjAQrKMFZV260lbqYop1d2GM67JI1huLRwxo9ZqnfF/lC6A==",
+      "path": "newtonsoft.json/13.0.4",
+      "hashPath": "newtonsoft.json.13.0.4.nupkg.sha512"
     },
     "NReco.LambdaParser/1.0.12": {
       "type": "package",
@@ -6318,12 +6370,12 @@
       "path": "system.buffers/4.5.1",
       "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
-    "System.CodeDom/4.7.0": {
+    "System.CodeDom/7.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Hs9pw/kmvH3lXaZ1LFKj3pLQsiGfj2xo3sxSzwiLlRL6UcMZUTeCfoJ9Udalvn3yq5dLlPEZzYegrTQ1/LhPOQ==",
-      "path": "system.codedom/4.7.0",
-      "hashPath": "system.codedom.4.7.0.nupkg.sha512"
+      "sha512": "sha512-GLltyqEsE5/3IE+zYRP5sNa1l44qKl9v+bfdMcwg+M9qnQf47wK3H0SUR/T+3N4JEQXF3vV4CSuuo0rsg+nq2A==",
+      "path": "system.codedom/7.0.0",
+      "hashPath": "system.codedom.7.0.0.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -6465,12 +6517,12 @@
       "path": "system.diagnostics.debug/4.3.0",
       "hashPath": "system.diagnostics.debug.4.3.0.nupkg.sha512"
     },
-    "System.Diagnostics.DiagnosticSource/5.0.0": {
+    "System.Diagnostics.DiagnosticSource/6.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==",
-      "path": "system.diagnostics.diagnosticsource/5.0.0",
-      "hashPath": "system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512"
+      "sha512": "sha512-6tQaIexFycaotdGn23lf3XJ/eI1GOjQKIvQDRFN9N4pwoNsKnHuXccQ3lnQO6GX8KAb1ic+6ZofJmPdbUVwZag==",
+      "path": "system.diagnostics.diagnosticsource/6.0.2",
+      "hashPath": "system.diagnostics.diagnosticsource.6.0.2.nupkg.sha512"
     },
     "System.Diagnostics.Process/4.3.0": {
       "type": "package",
@@ -6597,6 +6649,13 @@
       "sha512": "sha512-PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
+    },
+    "System.Management/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/qEUN91mP/MUQmJnM5y5BdT7ZoPuVrtxnFlbJ8a3kBJGhe2wCzBfnPFtK2wTtEEcf3DMGR9J00GZZfg6HRI6yA==",
+      "path": "system.management/7.0.2",
+      "hashPath": "system.management.7.0.2.nupkg.sha512"
     },
     "System.Memory/4.5.5": {
       "type": "package",
