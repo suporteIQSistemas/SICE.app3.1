@@ -19,6 +19,28 @@ function isModal() {
 function isTotalizadoresOn() {
     return document.querySelector('div[id^="totalizador"]') !== null;
 }
+function bootstrapDropdownToggle(idElement) {
+    var element = document.getElementById(idElement);
+    var dropdown = $(element).dropdown(); // usa jQuery no Bootstrap 4
+
+    if ($(element).parent().hasClass('show')) {
+        $(element).dropdown('hide');
+    } else {
+        $(element).dropdown('show');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 //function KeypressRadionButton() {
 //    var radioButtons = document.querySelectorAll('input[type="radio"]');
@@ -102,6 +124,22 @@ function ObterHeightWindow(unidadeMedida) {
             var windowHeight = window.innerHeight;
             if (elementHeight != null)
                 return ((elementHeight / windowHeight) * 100) + "vh";
+            else
+                return null;
+    }
+}
+function ObterWidthWindow(unidadeMedida) {
+    var elementWidth = window.innerWidth;
+
+    switch (unidadeMedida) {
+        case "px":
+            return elementWidth + "px";
+
+        default:
+        case "vh":
+            var windowHeight = window.innerHeight;
+            if (elementWidth != null)
+                return ((elementWidth / windowHeight) * 100) + "vh";
             else
                 return null;
     }

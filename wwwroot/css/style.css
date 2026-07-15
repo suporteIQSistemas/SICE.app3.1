@@ -171,6 +171,11 @@ input:disabled {
 
 table .dropdown-second-content {
     right: 10em;
+    bottom: 0px; /* padrão */
+}
+
+/* Se houver mais de 5 <li> filhos */
+table .dropdown-second-content:has(> li:nth-child(6)) {
     bottom: -7em;
 }
 
