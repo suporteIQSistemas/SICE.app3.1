@@ -18,10 +18,18 @@ async function statusApiWhatsAppConexao() {
         throw error;
     }
 }
-async function htmlToPdfConverter(printPage, style = true, baseUri = "") {
+async function htmlToPdfConverter(printPage, style = true, formatacaoBase = true, baseUri = "", colorido = false) {
     try {
-        const result = await DotNet.invokeMethodAsync(_assemblyName, "HtmlToPdfConverter", printPage, style, baseUri, false);
+        const result = await DotNet.invokeMethodAsync(_assemblyName,
+                                                      "HtmlToPdfConverter", 
+                                                      printPage, 
+                                                      style,
+                                                      formatacaoBase,
+                                                      baseUri,
+                                                      colorido);
+
         return result;
+
     } catch (error) {
         console.error('Erro ao chamar a função. ', error);
         throw error;

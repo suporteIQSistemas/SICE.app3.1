@@ -153,5 +153,14 @@ function iniciarNavTab(idElement) {
 }
 
 /*****************************/
-/* TABLE - SCROLL TAB ITEMS */
+/* TABLE - INPUT            */
 /***************************/
+function iniciarTableWebComponent() {
+    document.addEventListener('wheel', function (event) {
+        let active = document.activeElement;
+
+        if (active && active.tagName.toLowerCase() === 'input' && active.closest('table')) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+}

@@ -6,7 +6,20 @@
     var base64StringContentAtivo = dadosPrintPage.base64StringContent != null && dadosPrintPage.base64StringContent != "";
 
     if (!htmlContentAtivo && !base64StringContentAtivo) {
-        dadosPrintPage.htmlContent = GetHtmlElement(dadosPrintPage.idElement);
+        var element = document.querySelector(`#${dadosPrintPage.idElement}`);
+
+        if (element && element.id.startsWith("NavTab")) {
+            // Captura também o footer quando for modal
+            var modalTabFooterElement = element.nextElementSibling;
+            if (modalTabFooterElement) {
+                dadosPrintPage.htmlContent = element.innerHTML + modalTabFooterElement.innerHTML;
+            } else {
+                dadosPrintPage.htmlContent = element.innerHTML;
+            }
+        } else if (element) {
+            dadosPrintPage.htmlContent = element.innerHTML;
+        }
+
         htmlContentAtivo = dadosPrintPage.htmlContent != null && dadosPrintPage.htmlContent != "";
     }
 
